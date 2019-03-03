@@ -1,0 +1,13 @@
+设置用户名
+git config --global user.name 'yanan0530'
+
+设置邮箱
+
+git config --global user.email '550985993@qq.com'
+
+git init 初始化
+
+
+查看 状态 
+
+git status
