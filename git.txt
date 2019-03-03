@@ -15,4 +15,14 @@ git status
 
 git add 文件名  添加到暂存区
 
-git commit -m "描述" 添加到本地
+git commit -m "描述" 提交添加到本地
+
+删除 文件
+
+
+删除之后 
+
+删除
+git rm 文件名
+
+
