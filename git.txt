@@ -11,3 +11,8 @@ git init 初始化
 查看 状态 
 
 git status
+
+
+git add 文件名  添加到暂存区
+
+git commit -m "描述" 添加到本地
