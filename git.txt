@@ -1,9 +1,13 @@
-设置用户名
+ 设置用户名
 git config --global user.name 'yanan0530'
 
 设置邮箱
 
 git config --global user.email '550985993@qq.com'
+
+//查看信息
+cat .git/config
+
 
 git init 初始化
 
