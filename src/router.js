@@ -12,6 +12,10 @@ import Bug from '@/views/bug/Index'
 import Index from '@/views/index/Index.vue'
 
 import Role from "@/views/Role/Role"
+import Season from "@/views/Season/Index.vue"
+import Vegetables from '@/views/Vegetables/Vegetables.vue'
+
+import Income from '@/views/Income/Index'
 Vue.use(Router)
 
 export default new Router({
@@ -47,6 +51,17 @@ export default new Router({
 		path: "/role",
 		component: Role,
 		name: "role"
+	}, {
+		path: "/season",
+		component: Season,
+		name: "Season"
+	}, {
+		path: '/vegetables',
+		component: Vegetables
+	}, {
+		path:'/income',
+		component:Income
+		
 	}],
 	mode: 'history'
 })

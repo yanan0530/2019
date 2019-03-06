@@ -27,7 +27,6 @@
 	</el-form>
 </template>
 <script>
-	import {colList,reqGetUser2,bugSubmit} from '@/api/index.js'
 	
 export default {
 	data() {

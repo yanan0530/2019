@@ -1,19 +1,14 @@
 module.exports = {
-  devServer: {
-    proxy: {
-      '/shankeword': {
-        target: 'http://192.168.1.222:83',
-        ws: true,
-        changeOrigin: true
-      },
+	devServer: {
+		proxy: {
 			'/api': {
-				target: 'http://jsonplaceholder.typicode.com',
+				target: 'http://yapi.demo.qunar.com',
 				changeOrigin: true,
-				pathRewrite:{
-					'^/api': ''
+				pathRewrite: {
+					'^/api': '/mock/52671/api/'
 				}
 			},
-    }
-  },
+		}
+	},
 
 }

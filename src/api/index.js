@@ -1,7 +1,8 @@
 import ajax from '@/api/ajax.js'
-export const reqGetUser = () => ajax('/shankeword/user/login.do')
-export const reqGetUser2 = () => ajax('/api/users')
-
 
 //获取role
-export const roleList=()=>ajax('/data/role.json')
+// export const roleList=()=>ajax('/api/role')
+
+export const seasonData=()=>ajax('/api/season');
+export const vegetablesData=()=>ajax('/api/vegetables');
+export const incomeData=()=>ajax('/api/income');

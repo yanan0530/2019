@@ -30,3 +30,10 @@ git commit -m "描述" 提交添加到本地
 git rm 文件名
 
 
+
+先连接  git remote add origin https://github.com/yanan0530/2019.git
+
+
+
+git push origin master 在登录密码
+
