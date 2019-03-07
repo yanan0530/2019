@@ -32,14 +32,15 @@
 			</template>
 		</el-table-column>
 	</el-table>
-	{{form.type}}
+	{{dJ}}
 </div>
 </template>
 
 <script>
 	import {
-		seasonData,vegetablesData
+		seasonData,vegetablesData,dj
 	} from '@/api'
+	import axios from 'axios'
 export default {
 	methods: {
 		handleClick(row) {
@@ -52,11 +53,13 @@ export default {
 	async mounted(){
 		this.tableData=await seasonData();
 		this.VegetableOptions= await vegetablesData();
+		this.dJ=await dj();
 	},
 	data() {
 		return {
 			tableData: [],
 			VegetableOptions:[],
+			dJ:'',
 			form:{
 				id:0,
 				name:'',

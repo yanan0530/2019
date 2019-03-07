@@ -8,6 +8,10 @@ module.exports = {
 					'^/api': '/mock/52671/api/'
 				}
 			},
+			'/dj': {
+				target: 'http://127.0.0.1:8000',
+				changeOrigin: true,
+			},
 		}
 	},
 

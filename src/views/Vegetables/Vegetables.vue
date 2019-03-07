@@ -1,15 +1,13 @@
 <template>
 	<div>
-		<el-form ref="form" :model="form" label-width="80px" :inline="true">
-			<el-form-item label="Id">
-				<el-input v-model="form.id"></el-input>
-			</el-form-item>
-		  <el-form-item label="蔬菜名称">
+		<el-form ref="form" :model="form" :rules="rulesForm" label-width="80px" :inline="true">
+		  <el-form-item label="蔬菜名称" prop="name">
 			<el-input v-model="form.name"></el-input>
 		  </el-form-item>
 		 <el-form-item>
-			<el-button type="primary" @click="onSubmit">立即创建</el-button>
-			<el-button>取消</el-button>
+			<el-button type="primary" @click="onSubmit" v-show="btnShow">立即创建</el-button>
+			<el-button type="primary" @click="onSubmit" v-show="!btnShow">编辑</el-button>
+			<el-button @click="resetForm">取消</el-button>
 		  </el-form-item>
 		</el-form>
 		
@@ -18,7 +16,7 @@
 		<el-table-column prop="name" label="蔬菜" ></el-table-column>
 		<el-table-column  label="操作" width="100">
 			<template slot-scope="scope">
-				<el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+				<el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
 				<el-button type="text" size="small">删除</el-button>
 			</template>
 		</el-table-column>
@@ -29,28 +27,46 @@
 
 <script>
 	import {
-		vegetablesData
+		vegetablesData,addVegetables
 	} from '@/api'
 export default {
+	data() {
+		return {
+			tableData: [],
+			btnShow:true,
+			form:{
+				id:0,
+				name:'',
+			},
+			rulesForm:{
+				name:[ { required: true, message: '请输入蔬菜名称', trigger: 'change' }]
+			},
+		};
+	},
 	methods: {
 		handleClick(row) {
-			console.log(row);
+			this.form.id=row.id
+			this.form.name=row.name
+			this.btnShow=false
 		},
-		onSubmit(){
-			
+		resetForm(){
+			this.btnShow=true
+			this.$refs['form'].resetFields();
+		},
+		onSubmit(){//添加
+			this.$refs['form'].validate((valid)=>{
+				if(valid){
+					alert("提交");
+					this.$refs['form'].resetFields();
+				}else{
+					return false
+				}
+			})
 		}
 	},
 	async mounted(){
 		this.tableData=await vegetablesData();
 	},
-	data() {
-		return {
-			tableData: [],
-			form:{
-				id:0,
-				name:'',
-			}
-		};
-	}
+	
 };
 </script>
