@@ -4,8 +4,10 @@ import ajax from '@/api/ajax.js'
 // export const roleList=()=>ajax('/api/role')
 
 export const seasonData=()=>ajax('/api/season');
+
 export const vegetablesData=()=>ajax('/api/vegetables');
-export const addVegetables =(data)=>ajax('',data,"POST");
+export const addVegetables=(datafrom)=>ajax('/api/addvegetable',datafrom,'POST')
+export const delVegetable=(id)=>ajax('/api/delvegetable',{id},'POST');
 
 
 export const incomeData=()=>ajax('/api/income');

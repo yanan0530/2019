@@ -8,6 +8,7 @@ import Dept from '@/views/platform/Dept'
 import Login from "@/views/Login/Login.vue"
 
 import Bug from '@/views/bug/Index'
+import Tree from '@/views/bug/Tree.vue'
 
 import Index from '@/views/index/Index.vue'
 
@@ -48,6 +49,9 @@ export default new Router({
 		path: "/bug",
 		component: Bug
 	}, {
+		path: '/tree',
+		component: Tree
+	}, {
 		path: "/role",
 		component: Role,
 		name: "role"
@@ -59,9 +63,9 @@ export default new Router({
 		path: '/vegetables',
 		component: Vegetables
 	}, {
-		path:'/income',
-		component:Income
-		
+		path: '/income',
+		component: Income
+
 	}],
 	mode: 'history'
 })

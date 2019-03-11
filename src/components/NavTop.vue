@@ -14,6 +14,7 @@
 		<el-menu-item index="/season" class="right">季节</el-menu-item>
 		<el-menu-item index="/vegetables" class="right">蔬菜</el-menu-item>
 		<el-menu-item index="/income" class="right">输入</el-menu-item>
+		<el-menu-item index="/tree" class="right">Tree</el-menu-item>
 		<el-menu-item index="/index" class="left">
 			<img src="@/assets/logo.png" height="60px" />
 		</el-menu-item>
