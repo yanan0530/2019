@@ -1,5 +1,6 @@
 <template>
 	<div>
+		{{tableData}}
 		<el-form ref="form" :model="form" :rules="rulesForm" label-width="80px" :inline="true">
 			<el-form-item label="蔬菜名称" prop="name">
 				<el-input v-model="form.name"></el-input>
@@ -10,7 +11,7 @@
 				<el-button @click="resetForm">取消</el-button>
 			</el-form-item>
 		</el-form>
-		<el-table :data="tableData" border style="width: 100%">
+		<el-table :data="tableDataList" border style="width: 100%">
 			<el-table-column fixed prop="id" label="Id"></el-table-column>
 			<el-table-column prop="name" label="蔬菜"></el-table-column>
 			<el-table-column label="操作" width="100">
@@ -24,7 +25,6 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		{{ form.type }}
 	</div>
 </template>
 
@@ -43,6 +43,17 @@ export default {
 				name: [{ required: true, message: '请输入蔬菜名称', trigger: 'change' }]
 			}
 		};
+	},
+	computed:{
+		tableDataList(){
+			let newTable=new Array();
+			for (var i=0,l=this.tableData.length;i<l;i++){
+				let rows={"id":this.tableData[i]["pk"],"name":this.tableData[i].fields.name};
+				newTable[i]=rows;
+			}
+			return newTable
+		}
+			
 	},
 	methods: {
 		handleClick(row) {
@@ -78,7 +89,8 @@ export default {
 		}
 	},
 	async mounted() {
-		this.tableData = await vegetablesData();
+		let data = await vegetablesData();
+		this.tableData=data
 	}
 };
 </script>
