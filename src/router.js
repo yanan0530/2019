@@ -47,6 +47,7 @@ export default new Router({
 		component: Login
 	}, {
 		path: "/bug",
+		name:'bug',
 		component: Bug
 	}, {
 		path: '/tree',
@@ -58,7 +59,7 @@ export default new Router({
 	}, {
 		path: "/season",
 		component: Season,
-		name: "Season"
+		name: "season",
 	}, {
 		path: '/vegetables',
 		component: Vegetables

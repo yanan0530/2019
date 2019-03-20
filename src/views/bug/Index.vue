@@ -313,8 +313,7 @@ export default {
 		this.options=op;
 	},
 	async mounted(){
-		const result= await reqGetUser2()
-		console.info(result)
+		
 	},
 	methods: {
 		submitForm() {

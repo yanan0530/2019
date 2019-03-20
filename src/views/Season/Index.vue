@@ -37,16 +37,21 @@
 				</template>
 			</el-table-column>
 		</el-table>
+		<PaginationCommon></PaginationCommon>
 		{{ this.form.type }}
 	</div>
 </template>
-
 <script>
-import { seasonData, vegetablesData, dj } from '@/api'
+import { seasonData, vegetablesData} from '@/api'
+
+import PaginationCommon from "@/components/PaginationCommon.vue"
 export default {
+	async beforeRouteUpdate (to, from, next) {
+		this.tableData=await seasonData(to.query)
+		next()
+	},
 	methods: {
 		handleClick(row) {
-			console.log(row);
 		},
 		onSubmit() {
 			this.$refs['form'].validate((valid)=>{
@@ -61,13 +66,11 @@ export default {
 	async mounted() {
 		this.tableData = await seasonData();
 		this.VegetableOptions = await vegetablesData();
-		this.dJ = await dj();
 	},
 	data() {
 		return {
 			tableData: [],
 			VegetableOptions: [],
-			dJ: '',
 			form: {
 				id: 0,
 				name: '',
@@ -87,6 +90,9 @@ export default {
 				]
 			}
 		};
+	},
+	components:{
+		PaginationCommon
 	}
 };
 </script>
