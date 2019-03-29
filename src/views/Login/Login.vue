@@ -1,13 +1,13 @@
 <template>
-	 <el-form ref="formLogin" :model="formLogin" label-width="120px" :rules="rules">
+	<el-form ref="formLogin" :model="formLogin" label-width="120px" :rules="rules">
 		<el-form-item label="账号" prop="username">
-			<el-input v-model="formLogin.username" ></el-input>
+			<el-input v-model="formLogin.username"></el-input>
 		</el-form-item>
 		<el-form-item label="工号" prop="worknum">
 			<el-input v-model="formLogin.worknum"></el-input>
 		</el-form-item>
-		<el-form-item label="密码" prop="password">
-			<el-input v-model="formLogin.password" type="password"></el-input>
+		<el-form-item label="密码" prop="userpassword">
+			<el-input v-model="formLogin.userpassword" type="password"></el-input>
 		</el-form-item>
 		<el-form-item>
 			<el-checkbox v-model="autoLogin">记住密码</el-checkbox>
@@ -21,34 +21,41 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+import { login } from '@/api/index.js';
 export default {
-	data(){
+	data() {
 		return {
-			formLogin:{
-				username:null,
-				worknum:null,
-				password:null
+			formLogin: {
+				username: "历史",
+				userpassword: "123456",
+				token:"123"
 			},
-			remSet:false,
-			autoLogin:false,
-			rules:{
-				username:[
-					{required:true,message:'请填写账号',trigger:'blur'}
-				],
-				password:[
-					{required:true,message:'请输入密码',trigger:'blur'}
-				]
+			remSet: false,
+			autoLogin: false,
+			rules: {
+				username: [{ required: true, message: '请填写账号', trigger: 'blur' }],
+				userpassword: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 			}
-		}
+		};
 	},
-	methods:{
-		onSubmit(formname){
-			this.$refs[formname].validate().then(valid=>{
-				console.info(valid)
-			})
+	methods: {
+		...mapMutations(["initUser"]),
+		onSubmit(formname) {
+			this.$refs[formname].validate().then(valid => {
+				if (valid) {
+					login(this.formLogin).then(res => {
+						alert(res)
+						sessionStorage.setItem('loginUser', JSON.stringify(this.formLogin));
+						this.initUser(this.formLogin);
+						this.$router.push('/index');
+					});
+				}
+			});
 		},
-		resetForm(formname){//重置
-			this.$refs[formname].resetFields()
+		resetForm(formname) {
+			//重置
+			this.$refs[formname].resetFields();
 		}
 	}
 };

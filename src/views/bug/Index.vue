@@ -27,7 +27,6 @@
 	</el-form>
 </template>
 <script>
-	
 export default {
 	data() {
 		return {
@@ -311,9 +310,6 @@ export default {
 			]
 		var jsonOp=JSON.stringify(op);
 		this.options=op;
-	},
-	async mounted(){
-		
 	},
 	methods: {
 		submitForm() {

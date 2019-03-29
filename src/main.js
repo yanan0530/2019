@@ -11,15 +11,38 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
- 
+
 Vue.use(VueQuillEditor)
 
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 
+router.beforeEach((to,from,next)=>{
+	
+	
+	let name = to.name;
+	let label = to.meta.title;
+	let tabList = {
+		name,
+		label
+	}
+	store.dispatch('tabListData', tabList).then(() => {
+		if(to.path !="/login"){
+			 if(store.getters.getLoginUser ==null){
+				next("/login")
+			}else{
+				next()
+			} 
+		}else{
+			next()
+		}
+	}) 
+})
+
+
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+	router,
+	store,
+	render: h => h(App)
 }).$mount('#app')

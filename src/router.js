@@ -19,6 +19,8 @@ import Vegetables from '@/views/Vegetables/Vegetables.vue'
 import Income from '@/views/Income/Index'
 Vue.use(Router)
 
+
+
 export default new Router({
 	routes: [{
 		path: '/platfrom',
@@ -44,11 +46,18 @@ export default new Router({
 		},
 	}, {
 		path: "/login",
-		component: Login
+		name:'logon',
+		component: Login,
+		meta:{
+			title:"登录"
+		}
 	}, {
 		path: "/bug",
 		name:'bug',
-		component: Bug
+		component: Bug,
+		meta:{
+			title:"错误"
+		}
 	}, {
 		path: '/tree',
 		component: Tree
@@ -60,6 +69,9 @@ export default new Router({
 		path: "/season",
 		component: Season,
 		name: "season",
+		meta:{
+			title:"蔬菜"
+		}
 	}, {
 		path: '/vegetables',
 		component: Vegetables

@@ -8,10 +8,13 @@ module.exports = {
 					'^/api': '/mock/52671/api/'
 				}
 			},
-			/* '/api': {
-				target: 'http://127.0.0.1:8000',
+			'/eureka': {
+				target: 'http://192.168.7.224:9090/',
 				changeOrigin: true,
-			}, */
+				pathRewrite: {
+					'^/eureka': ''
+				}
+			},
 		}
 	},
 }

@@ -17,7 +17,7 @@
 					<el-menu-item index="/role" class="right">
 						<span slot="title">管理员</span>
 					</el-menu-item>
-					<el-menu-item index="/season" class="right" route="{ name: 'season'}">首页</el-menu-item>
+					<el-menu-item index="/" class="right">首页</el-menu-item>
 					<el-menu-item index="/season" class="right">季节</el-menu-item>
 					<el-menu-item index="/income" class="right">输入</el-menu-item>
 					<el-menu-item index="/tree" class="right">Tree</el-menu-item>
@@ -48,7 +48,7 @@ export default {
 			console.log(key, keyPath);
 		},
 		isC(){
-			this.$store.dispatch('changeCollapse').then()
+			this.$store.dispatch('changeCollapse')
 		}
 	}
 };

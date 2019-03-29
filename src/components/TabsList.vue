@@ -1,34 +1,34 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="handleClick">
-	 
-    <el-tab-pane label="用户管理" name="season"></el-tab-pane>
-	
-	<el-tab-pane label="用户管理1" name="bug"></el-tab-pane>
-  </el-tabs>
+	<el-tabs v-model="tabHover.tabhover" @tab-click="handleClick" closable @tab-remove="removeTab">
+		<el-tab-pane
+			v-for="(tab) in tableData"
+			:key="tab.name"
+			:label="tab.label"
+			:name="tab.name"
+		></el-tab-pane>
+	</el-tabs>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        activeName: 'second'
-      };
-    },
-	computed:{
-		tableData(){
-			let tabList=[
-				{label:"用户管理",id:1,name:"sesson"},
-				{label:"用户管理",id:1,name:"sesson"},
-				{label:"用户管理",id:1,name:"sesson"},
-			]
-			return tabList
-		}
-		
+export default {
+	data() {
+		return {
+		};
 	},
-    methods: {
-      handleClick(tab, event) {
-        console.log(tab.name);
-		this.$router.push({name:tab.name})
-      }
-    }
-  };
+	computed: {
+		tableData() {
+			return this.$store.state.nav.tabList;
+		},
+		tabHover() {
+			return this.$store.state.nav;
+		}
+	},
+	methods: {
+		handleClick(tab) {
+			this.$router.push({ name: tab.name });
+		},
+		removeTab(tab){
+			this.$store.dispatch('delTabList',tab)
+		}
+	}
+};
 </script>
