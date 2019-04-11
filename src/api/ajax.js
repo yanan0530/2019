@@ -27,12 +27,12 @@ axios.defaults.validateStatus=function(status){
 //请求
 axios.interceptors.request.use((config) => {
 	//获取缓存是否有值
-	if (store.getters.getLoginUser) {
+	/* if (store.getters.getLoginUser) {
 		//设置头部
 		config.headers.token = `${store.getters.getLoginUser.token}`;
 	}else {//空直接跳转登录页面
 		router.push('/login');
-	}
+	} */
 	return config
 })
 //响应拦截器
@@ -64,6 +64,7 @@ axios.interceptors.response.use(res => {
 	return res
 }) 
 export default function ajax(url, data = {}, type = 'GET') {
+	
 	return new Promise(function(resolve, reject) {
 		let promise
 
@@ -76,6 +77,7 @@ export default function ajax(url, data = {}, type = 'GET') {
 				dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
 				url = url + '?' + dataStr
 			}
+			
 			promise = axios.get(url)
 		} else {
 			promise = axios.post(url, data)

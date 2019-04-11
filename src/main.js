@@ -6,6 +6,10 @@ import router from './router'
 import store from '@/store'
 import './plugins/element.js'
 
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts 
+
 //富文本
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
@@ -30,7 +34,8 @@ router.beforeEach((to,from,next)=>{
 	store.dispatch('tabListData', tabList).then(() => {
 		if(to.path !="/login"){
 			 if(store.getters.getLoginUser ==null){
-				next("/login")
+				/* next("/login") */
+				next()
 			}else{
 				next()
 			} 

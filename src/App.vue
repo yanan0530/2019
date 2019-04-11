@@ -22,15 +22,24 @@ import FormBug from '@/components/FormBug';
 import NavTop from '@/components/NavTop';
 import NavLeft from '@/components/NavLeft'
 import TabsList from '@/components/TabsList'
+import {vegeInit} from '@/api'
 export default {
 	data() {
 		return {};
+	},
+	provide(){
+		
 	},
 	components: {
 		FormBug,
 		NavTop,
 		NavLeft,
 		TabsList
+	},
+	created() {
+		vegeInit().then(res=>{
+			this.$store.dispatch('initVegetables',res);
+		})
 	}
 };
 </script>

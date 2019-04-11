@@ -15,6 +15,17 @@ module.exports = {
 					'^/eureka': ''
 				}
 			},
+			'/yn': {
+				target: 'http://127.0.0.1:8081',
+				changeOrigin: true,
+				pathRewrite: {
+					'^/yn': ''
+				}
+			},
 		}
 	},
+	transpileDependencies: [
+		'vue-echarts',
+		'resize-detector'
+	]
 }

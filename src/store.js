@@ -5,22 +5,29 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		token:null, 
+		token: null,
 		loginUser: sessionStorage.getItem('loginUser') ? JSON.parse(sessionStorage.getItem('loginUser')) : null,
 		nav: {
 			isCollapse: false,
 			tabList: [],
 			tabhover: '',
-		}
+		},
+		vegetables: null,
 	},
-	getters:{
-		getLoginUser(state){
+	getters: {
+		getLoginUser(state) {
 			return state.loginUser;
+		},
+		getVegetable:state=>{
+			return state.vegetables;
 		}
 	},
 	mutations: {
-		initUser(state,data){
-			state.LoginUser=data;
+		initVegetables(state, data) {
+			state.vegetables = data;
+		},
+		initUser(state, data) {
+			state.LoginUser = data;
 		},
 		changeCollapse(state) {
 			state.nav.isCollapse = !state.nav.isCollapse
@@ -57,6 +64,10 @@ export default new Vuex.Store({
 				}
 			}
 			context.commit('delTabListM', index)
+		},
+		initVegetables(context, data) {
+			
+			context.commit("initVegetables", data)
 		}
 	}
 })

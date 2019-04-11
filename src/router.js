@@ -27,14 +27,9 @@ export default new Router({
 		name: 'platfrom',
 		component: Platfrom,
 		children: [{
-				path: 'user',
-				component: User
-			},
-			{
-				path: 'dept',
-				component: Dept
-			}
-		]
+			path: 'dept',
+			component: Dept
+		}]
 	}, {
 		path: '/index',
 		name: 'index',
@@ -43,20 +38,27 @@ export default new Router({
 		path: "/",
 		redirect: {
 			name: 'index'
-		},
+		}
 	}, {
 		path: "/login",
-		name:'logon',
+		name: 'logon',
 		component: Login,
-		meta:{
-			title:"登录"
+		meta: {
+			title: "登录"
 		}
 	}, {
 		path: "/bug",
-		name:'bug',
+		name: 'bug',
 		component: Bug,
-		meta:{
-			title:"错误"
+		meta: {
+			title: "错误"
+		}
+	}, {
+		path: "/user",
+		name: 'user',
+		component: User,
+		meta: {
+			title: "用户管理"
 		}
 	}, {
 		path: '/tree',
@@ -69,16 +71,23 @@ export default new Router({
 		path: "/season",
 		component: Season,
 		name: "season",
-		meta:{
-			title:"蔬菜"
+		meta: {
+			title: "报表"
 		}
 	}, {
 		path: '/vegetables',
-		component: Vegetables
+		component: Vegetables,
+		name: 'vegetables',
+		meta: {
+			title: "蔬菜管理"
+		}
 	}, {
 		path: '/income',
-		component: Income
-
+		component: Income,
+		name: "income",
+		meta: {
+			title: "收入单据"
+		}
 	}],
 	mode: 'history'
 })

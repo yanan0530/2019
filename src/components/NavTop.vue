@@ -18,8 +18,9 @@
 						<span slot="title">管理员</span>
 					</el-menu-item>
 					<el-menu-item index="/" class="right">首页</el-menu-item>
-					<el-menu-item index="/season" class="right">季节</el-menu-item>
-					<el-menu-item index="/income" class="right">输入</el-menu-item>
+					<el-menu-item index="/user" class="right">用户管理</el-menu-item>
+					<el-menu-item index="/season" class="right">报表</el-menu-item>
+					<el-menu-item index="/income" class="right">收入单据</el-menu-item>
 					<el-menu-item index="/tree" class="right">Tree</el-menu-item>
 					<el-submenu index="2" class="right">
 						<template slot="title">我的工作台</template>

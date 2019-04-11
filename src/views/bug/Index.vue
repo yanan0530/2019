@@ -41,7 +41,6 @@ export default {
 	created(){
 		var op=[
 				{
-					 
 					value: 'zhinan',
 					label: '指南',
 					children: [
