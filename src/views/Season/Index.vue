@@ -14,60 +14,65 @@
 		data() {
 			return {
 				msg: 'Welcome to Your Vue.js App',
-				dataToday: null,
+				dataToday: [],
 			}
 		},
 		computed: {
-			
+
 		},
 		mounted() {
-			
+
 			incomeToday().then(res => {
-				
-				this.drawLine(res);
+				this.dataToday=res
+			}).then(()=>{
+				this.drawLine(this.dataToday);
 			})
 		},
 		methods: {
 			drawLine(res) {
-				console.info(this.echartData(res)["sData"])
-				
+
 				// 基于准备好的dom，初始化echarts实例
 				let myChart = this.$echarts.init(document.getElementById('myChart'))
 				myChart.clear();
 				// 绘制图表
 				// 指定图表的配置项和数据
 				var option = {
-					title: {
-						text: 'ECharts 入门示例'
-					},
+					legend: {},
 					tooltip: {},
-					legend: {
-						data: ['销量']
+					dataset: {
+						// 提供一份数据。
+						source: this.echartData(res)
 					},
+					// 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
 					xAxis: {
-						data: this.echartData(res)["xName"]
+						type: 'category'
 					},
+					// 声明一个 Y 轴，数值轴。
 					yAxis: {},
+					// 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
 					series: [{
-						name: '销量',
-						type: 'bar',
-						data: this.echartData(res)["sData"]
-					}]
-				};
-
+							type: 'bar'
+						},
+						{
+							type: 'bar'
+						}
+					]
+				}
+				console.info(option.dataset.source)
 				// 使用刚指定的配置项和数据显示图表。
 				myChart.setOption(option);
 			},
-			echartData(arr){
-				let optionToday = {
-					"xName": [],
-					"sData": []
-				};
+			echartData(arr) {
+				let source=[];
+				source[0]=new Array("product","总数量","总收入");
 				for (var i = 0; i < arr.length; i++) {
-					optionToday.xName[i] = arr[i].vegetable
-					optionToday.sData[i] = arr[i].sum
+					let d=new Array();
+					d.push(arr[i].vegetable);
+					d.push(arr[i].sumweight);
+					d.push(arr[i].sum);
+					source.push(d);
 				}
-				return optionToday
+				return source
 			}
 		}
 	}
