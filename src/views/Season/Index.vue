@@ -18,10 +18,9 @@
 			}
 		},
 		computed: {
-
+			
 		},
 		mounted() {
-
 			incomeToday().then(res => {
 				this.dataToday=res
 			}).then(()=>{
@@ -58,7 +57,6 @@
 						}
 					]
 				}
-				console.info(option.dataset.source)
 				// 使用刚指定的配置项和数据显示图表。
 				myChart.setOption(option);
 			},
@@ -67,7 +65,7 @@
 				source[0]=new Array("product","总数量","总收入");
 				for (var i = 0; i < arr.length; i++) {
 					let d=new Array();
-					d.push(arr[i].vegetable);
+					d.push(arr[i].name);
 					d.push(arr[i].sumweight);
 					d.push(arr[i].sum);
 					source.push(d);

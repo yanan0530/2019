@@ -39,5 +39,5 @@ git push origin master ÔÚµÇÂ¼ÃÜÂë
 
 
 
-https://github.com/yanan0530/springboot.git
+git remote add origin https://github.com/yanan0530/springboot.git
 
