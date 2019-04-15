@@ -7,7 +7,7 @@
 
 <script>
 	import {
-		incomeToday
+		incomeAll
 	} from "@/api"
 	export default {
 		name: 'hello',
@@ -21,7 +21,7 @@
 			
 		},
 		mounted() {
-			incomeToday().then(res => {
+			incomeAll().then(res => {
 				this.dataToday=res
 			}).then(()=>{
 				this.drawLine(this.dataToday);
@@ -29,7 +29,6 @@
 		},
 		methods: {
 			drawLine(res) {
-
 				// 基于准备好的dom，初始化echarts实例
 				let myChart = this.$echarts.init(document.getElementById('myChart'))
 				myChart.clear();

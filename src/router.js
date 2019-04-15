@@ -17,6 +17,11 @@ import Season from "@/views/Season/Index.vue"
 import Vegetables from '@/views/Vegetables/Vegetables.vue'
 
 import Income from '@/views/Income/Index'
+
+//报表  
+import AllIncomeReport from "@/views/Report/allIncomeReport"
+import YearIncomeReport from "@/views/Report/YearIncomeReport"
+import DateIncomeReport from "@/views/Report/DateIncomeReport"
 Vue.use(Router)
 
 
@@ -68,11 +73,25 @@ export default new Router({
 		component: Role,
 		name: "role"
 	}, {
-		path: "/season",
-		component: Season,
-		name: "season",
+		path: "/allIncomeReport",
+		component: AllIncomeReport,
+		name: "allIncomeReport",
 		meta: {
-			title: "报表"
+			title: "年度数据"
+		}
+	}, {
+		path: "/yearIncomeReport",
+		component: YearIncomeReport,
+		name: "yearIncomeReport",
+		meta: {
+			title: "年度月数据"
+		}
+	}, {
+		path: "/dateIncomeReport",
+		component: DateIncomeReport,
+		name: "dateIncomeReport",
+		meta: {
+			title: "时间数据"
 		}
 	}, {
 		path: '/vegetables',

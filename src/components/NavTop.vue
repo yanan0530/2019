@@ -21,7 +21,6 @@
 					<el-menu-item index="/user" class="right">用户管理</el-menu-item>
 					<el-menu-item index="/season" class="right">报表</el-menu-item>
 					<el-menu-item index="/income" class="right">收入单据</el-menu-item>
-					<el-menu-item index="/tree" class="right">Tree</el-menu-item>
 					<el-submenu index="2" class="right">
 						<template slot="title">我的工作台</template>
 						<el-menu-item index="/vegetables">蔬菜</el-menu-item>
