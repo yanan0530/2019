@@ -66,7 +66,6 @@ export default new Vuex.Store({
 			context.commit('delTabListM', index)
 		},
 		initVegetables(context, data) {
-			
 			context.commit("initVegetables", data)
 		}
 	}

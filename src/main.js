@@ -24,7 +24,6 @@ Vue.use(ElementUI);
 
 router.beforeEach((to,from,next)=>{
 	
-	
 	let name = to.name;
 	let label = to.meta.title;
 	let tabList = {

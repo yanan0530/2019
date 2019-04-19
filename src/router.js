@@ -22,6 +22,10 @@ import Income from '@/views/Income/Index'
 import AllIncomeReport from "@/views/Report/allIncomeReport"
 import YearIncomeReport from "@/views/Report/YearIncomeReport"
 import DateIncomeReport from "@/views/Report/DateIncomeReport"
+
+//事情 
+import ThingIndex from '@/views/Thing/Index.vue';
+
 Vue.use(Router)
 
 
@@ -40,6 +44,13 @@ export default new Router({
 		name: 'index',
 		component: Index,
 	}, {
+		path:'/thing',
+		name:'thing',
+		component:ThingIndex,
+		meta:{
+			title:"事情管理"
+		}
+	},{
 		path: "/",
 		redirect: {
 			name: 'index'

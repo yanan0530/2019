@@ -28,7 +28,7 @@ export const vegeDel = (id) => ajax('/yn/vegedel', {
 	id
 })
 
-export const vegeInit=()=>ajax('/yn/vegeinit')
+export const vegeInit = () => ajax('/yn/vegeinit')
 
 //收入管理
 
@@ -42,8 +42,18 @@ export const incomeDel = (id) => ajax('/yn/delincome', {
 
 
 //报表 获取所有总数据
-export const incomeAll=()=>ajax('/yn/incomeall')
+export const incomeAll = () => ajax('/yn/incomeall')
 
-export const incomeYear= (year)=>ajax('/yn/incomeyear',{year})
+export const incomeYear = (year) => ajax('/yn/incomeyear', {
+	year
+})
 
-export const incomeDateAll= (type,date)=>ajax('/yn/incomes',{type,date});
+export const incomeDateAll = (type, date) => ajax('/yn/incomes', {
+	type,
+	date
+});
+
+//事情
+export const thingAll = () => ajax('/yn/thing')
+export const thingSave = (data) => ajax('/yn/thing', data, "POST")
+export const thingDel=(id)=>ajax("/yn/thingdel",{id})

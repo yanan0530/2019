@@ -24,11 +24,7 @@
 		</el-form>
 		<el-table :data="tableData" border style="width: 100%">
 			<el-table-column prop="datetime" label="时间"></el-table-column>
-			<el-table-column label="蔬菜种类">
-				<template slot-scope="scope">
-					<span style="margin-left: 10px">{{vegName(scope.row.vegetable)}}</span>
-				</template>
-			</el-table-column>
+			<el-table-column label="蔬菜种类" prop="name"></el-table-column>
 			<el-table-column prop="money" label="收入"></el-table-column>
 			<el-table-column prop="weight" label="重量"></el-table-column>
 			<el-table-column prop="unitprice" label="单价"></el-table-column>
@@ -51,7 +47,6 @@
 	export default {
 		methods: {
 			handleClick(row) {
-				console.log(row);
 				this.form = row;
 			},
 			onSubmit() {
@@ -69,10 +64,6 @@
 						this.$router.go(0)
 					}
 				})
-			},
-			vegName(vegeId) {
-				let veg = this.initVeg.filter(v => v.id == vegeId)[0]
-				return veg.name
 			}
 		},
 		async mounted() {

@@ -1,9 +1,4 @@
 <template>
-  <!-- <el-container id="app">
-  	<el-header><nav-top></nav-top></el-header>
-  	<el-main><router-view></router-view></el-main>
-  </el-container> -->
-  
   <el-container>
 	<el-aside width="auto" style="background-color: rgb(84, 92, 100);"><nav-left></nav-left></el-aside>
 		<el-container>
