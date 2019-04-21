@@ -19,28 +19,24 @@
 					</el-menu-item>
 					<el-menu-item index="/" class="right">首页</el-menu-item>
 					<el-menu-item index="/user" class="right">用户管理</el-menu-item>
-					<el-menu-item index="/season" class="right">报表</el-menu-item>
+					<el-menu-item index="/projects" class="right">种植计划</el-menu-item>
 					<el-menu-item index="/income" class="right">收入单据</el-menu-item>
+					<el-menu-item index="/records" class="right">日常记录</el-menu-item>
 					<el-submenu index="2" class="right">
 						<template slot="title">我的工作台</template>
 						<el-menu-item index="/vegetables">蔬菜</el-menu-item>
 						<el-menu-item index="/thing">事情</el-menu-item>
-						<el-menu-item index="2-3">选项3</el-menu-item>
+						<el-menu-item index="/area">区域管理</el-menu-item>
 					</el-submenu>
 				</el-menu>
 			
 		</el-col>
 	</el-row>
-	
-	
 </template>
-
 <script>
-
 export default {
 	data() {
 		return {
-			
 		};
 	},
 	methods: {

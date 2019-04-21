@@ -25,7 +25,10 @@ import DateIncomeReport from "@/views/Report/DateIncomeReport"
 
 //事情 
 import ThingIndex from '@/views/Thing/Index.vue';
-
+//种植计划
+import Projects from "@/views/Projects.vue"
+import Area from "@/views/Area.vue"
+import Records from "@/views/Records.vue"
 Vue.use(Router)
 
 
@@ -117,6 +120,27 @@ export default new Router({
 		name: "income",
 		meta: {
 			title: "收入单据"
+		}
+	},{
+		path:'/projects',
+		component:Projects,
+		name:"projects",
+		meta:{
+			title:"种植计划"
+		}
+	},{
+		path:'/area',
+		component:Area,
+		name:"area",
+		meta:{
+			title:"区域管理"
+		}
+	},{
+		path:'/records',
+		component:Records,
+		name:"records",
+		meta:{
+			title:"日常记录"
 		}
 	}],
 	mode: 'history'

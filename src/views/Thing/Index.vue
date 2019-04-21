@@ -44,7 +44,6 @@ export default {
 			});
 		},
 		handleClick(row) {
-			console.info(row);
 			this.form = row;
 		},
 		delClick(id){

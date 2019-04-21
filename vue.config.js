@@ -1,7 +1,7 @@
 module.exports = {
 	devServer: {
 		proxy: {
-			'/api': {
+			 '/api': {
 				target: 'http://yapi.demo.qunar.com',
 				changeOrigin: true,
 				pathRewrite: {
@@ -18,10 +18,10 @@ module.exports = {
 			'/yn': {
 				target: 'http://127.0.0.1:8081',
 				changeOrigin: true,
-				pathRewrite: {
+				/* pathRewrite: {
 					'^/yn': ''
-				}
-			},
+				} */
+			}, 
 		}
 	},
 	transpileDependencies: [

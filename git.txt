@@ -41,3 +41,7 @@ git push origin master ÔÚµÇÂ¼ÃÜÂë
 
 git remote add origin https://github.com/yanan0530/springboot.git
 
+
+
+git pull origin master  ¸üĞÂ
+

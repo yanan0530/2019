@@ -56,4 +56,26 @@ export const incomeDateAll = (type, date) => ajax('/yn/incomes', {
 //事情
 export const thingAll = () => ajax('/yn/thing')
 export const thingSave = (data) => ajax('/yn/thing', data, "POST")
-export const thingDel=(id)=>ajax("/yn/thingdel",{id})
+export const thingDel = (id) => ajax("/yn/thingdel", {
+	id
+})
+
+//种植项目
+
+export const projectSave = (data) => ajax("/yn/project", data, "POST")
+export const projectAll = () => ajax("/yn/project")
+export const projectDel = (id) => ajax("/yn/projectdel", {
+	id
+})
+export const projectUpdate=(data)=>ajax("/yn/projectsupdate",data,"POST")
+export const projectByState=()=>ajax("/yn/projects/state")
+
+//区域
+export const areaAll=()=>ajax("/yn/area")
+export const areaSave=(data)=>ajax("/yn/area/save",data,"Post")
+export const areaDel=(id)=>ajax("/yn/area/del",{id})
+
+//日常操作
+export const recordsAll=()=>ajax("/yn/records/list")
+export const recordsSave=(data)=>ajax("/yn/records/save",data,"POST")
+export const recordsDel=(id)=>ajax("/yn/records/del",{id})

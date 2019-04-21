@@ -77,7 +77,6 @@ export default function ajax(url, data = {}, type = 'GET') {
 				dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
 				url = url + '?' + dataStr
 			}
-			
 			promise = axios.get(url)
 		} else {
 			promise = axios.post(url, data)
