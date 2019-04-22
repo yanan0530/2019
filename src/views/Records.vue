@@ -33,10 +33,18 @@
 		<el-row>
 			<el-table :data="tableData" border style="width: 100%">
 				<el-table-column label="Id" prop="id"></el-table-column>
-				<el-table-column label="项目" prop="projectid"></el-table-column>
-				<el-table-column label="区域" prop="areaid"></el-table-column>
+				<el-table-column label="项目" prop="name"></el-table-column>
+				<el-table-column label="区域">
+					<template slot-scope="scope">
+						<el-tag v-for="(area,index) in scope.row.areaid.split(',')" :key="index">{{area|showAreaTitle(areaoptions)}}</el-tag>
+					</template>
+				</el-table-column>
 				<el-table-column label="时间" prop="createtime"></el-table-column>
-				<el-table-column label="日常操作" prop="thingid"></el-table-column>
+				<el-table-column label="日常操作" prop="">
+					<template slot-scope="scope">
+						<el-tag v-for="(thing,index) in scope.row.thingid.split(',')" :key="index">{{thing|showThingTitle(thingsoptions)}}</el-tag>
+					</template>
+				</el-table-column>
 				<el-table-column label="备注" prop="remarks"></el-table-column>
 				<el-table-column label="操作" width="200">
 					<template slot-scope="scope">
@@ -105,8 +113,7 @@
 				return newDataArr
 			},
 			onSubmit() {
-				let data = this.changeData(this.form)
-				console.info(data)
+				 let data = this.changeData(this.form) 
 				recordsSave(data).then(res => {
 					if (res) {
 						this.$router.go(0)
@@ -131,8 +138,19 @@
 			}
 
 		},
+		filters: {
+			showAreaTitle: function(value,arr) {
+				return arr.filter(a=>a.id==value)[0].areaname;
+			},
+			showThingTitle:(value,arr)=>{
+				return arr.filter(thing=>thing.id==value)[0].name
+			}
+		}
 	}
 </script>
 
-<style>
+<style scoped="scoped">
+	.el-tag{
+		margin-right: 5px;
+	}
 </style>

@@ -29,8 +29,16 @@ import ThingIndex from '@/views/Thing/Index.vue';
 import Projects from "@/views/Projects.vue"
 import Area from "@/views/Area.vue"
 import Records from "@/views/Records.vue"
+//历程
+import ProjectsCourse from "@/views/ProjectsCourse.vue"
+
+
 Vue.use(Router)
 
+
+ser:()=>{
+	this.maindata
+}
 
 
 export default new Router({
@@ -140,7 +148,14 @@ export default new Router({
 		component:Records,
 		name:"records",
 		meta:{
-			title:"日常记录"
+			title:"日常记录单"
+		}
+	},{
+		path:'/projectscourse',
+		name:'ProjectsCourse',
+		component:ProjectsCourse,
+		meta:{
+			title:"种植历程"
 		}
 	}],
 	mode: 'history'

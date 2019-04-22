@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
 	devServer: {
 		proxy: {
 			 '/api': {
@@ -20,7 +20,7 @@ module.exports = {
 				changeOrigin: true,
 				/* pathRewrite: {
 					'^/yn': ''
-				} */
+				} 
 			}, 
 		}
 	},
@@ -28,4 +28,4 @@ module.exports = {
 		'vue-echarts',
 		'resize-detector'
 	]
-}
+}*/
