@@ -79,3 +79,4 @@ export const areaDel=(id)=>ajax("/yn/area/del",{id})
 export const recordsAll=()=>ajax("/yn/records/list")
 export const recordsSave=(data)=>ajax("/yn/records/save",data,"POST")
 export const recordsDel=(id)=>ajax("/yn/records/del",{id})
+export const recordsByProjectId=(id)=>ajax("/yn/records/projectid",{id})//根据项目ID 获取日常操作记录

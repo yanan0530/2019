@@ -17,13 +17,10 @@ import FormBug from '@/components/FormBug';
 import NavTop from '@/components/NavTop';
 import NavLeft from '@/components/NavLeft'
 import TabsList from '@/components/TabsList'
-import {vegeInit} from '@/api'
+import {vegeInit,projectByState,areaAll,thingAll} from '@/api'
 export default {
 	data() {
 		return {};
-	},
-	provide(){
-		
 	},
 	components: {
 		FormBug,
@@ -31,9 +28,19 @@ export default {
 		NavLeft,
 		TabsList
 	},
-	created() {
+	mounted() {
 		vegeInit().then(res=>{
 			this.$store.dispatch('initVegetables',res);
+		})
+		projectByState().then(res=>{
+			this.$store.dispatch('initProject',res)
+		})
+		areaAll().then(res=>{
+			this.$store.dispatch('initArea',res)
+		})
+		
+		thingAll().then(res=>{
+			this.$store.dispatch('initThing',res)
 		})
 	}
 };

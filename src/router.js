@@ -35,12 +35,6 @@ import ProjectsCourse from "@/views/ProjectsCourse.vue"
 
 Vue.use(Router)
 
-
-ser:()=>{
-	this.maindata
-}
-
-
 export default new Router({
 	routes: [{
 		path: '/platfrom',

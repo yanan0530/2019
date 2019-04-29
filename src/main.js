@@ -22,8 +22,14 @@ Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 
+
+//全局filters
+import * as custom from '@/assets/filters.js'
+Object.keys(custom).forEach(key=>{
+	Vue.filter(key,custom[key])
+})
+
 router.beforeEach((to,from,next)=>{
-	
 	let name = to.name;
 	let label = to.meta.title;
 	let tabList = {

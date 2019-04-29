@@ -136,15 +136,6 @@
 					areaname: '',
 				}
 			}
-
-		},
-		filters: {
-			showAreaTitle: function(value,arr) {
-				return arr.filter(a=>a.id==value)[0].areaname;
-			},
-			showThingTitle:(value,arr)=>{
-				return arr.filter(thing=>thing.id==value)[0].name
-			}
 		}
 	}
 </script>

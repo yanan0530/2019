@@ -1,13 +1,13 @@
 <template>
 	<div>
-		
+		{{initProject}}
 		<el-form ref="form" :model="form" label-width="80px" :inline="true">
 			<el-form-item label="日期">
 				<el-date-picker value-format="yyyy-MM-dd" v-model="form.datetime" type="date" placeholder="选择日期" > </el-date-picker>
 			</el-form-item>
-			<el-form-item label="蔬菜名称">
-				<el-select v-model="form.vegetable" placeholder="请选择">
-					<el-option v-for="(item,index) in initVeg" :key="index" :label="item.name" :value="item.id">
+			<el-form-item label="项目">
+				<el-select v-model="form.project_id" placeholder="请选择" @change="fillForm">
+					<el-option v-for="(item,index) in initProject" :key="index" :label="item.name" :value="item.id">
 					</el-option>
 				</el-select>
 			</el-form-item>
@@ -44,6 +44,7 @@
 		incomeSave,
 		incomeDel
 	} from '@/api'
+	import {mapState} from "vuex"
 	export default {
 		methods: {
 			handleClick(row) {
@@ -51,7 +52,9 @@
 			},
 			onSubmit() {
 				let data = this.form;
+				console.info(data)
 				data.unitprice = (data.money / data.weight).toFixed(2);
+				return
 				incomeSave(data).then(res => {
 					if (res) {
 						this.$router.go(0)
@@ -64,6 +67,11 @@
 						this.$router.go(0)
 					}
 				})
+			},
+			fillForm(val){
+				console.info(val)
+				this.form.vegetable=this.initProject.find(pro=>pro.id=val).vegeid
+				console.info(this.form.vegetable)
 			}
 		},
 		async mounted() {
@@ -72,18 +80,20 @@
 		computed: {
 			initVeg() {
 				return this.$store.getters.getVegetable
-			}
+			},
+			...mapState(['initProject'])
 		},
 		data() {
 			return {
 				tableData: [],
 				form: {
 					id: null,
-					vegetable: 9,
+					vegetable: null,
 					money: null,
 					weight: null,
 					unitprice: null,
 					datetime: '',
+					project_id:"",
 				}
 			};
 		}

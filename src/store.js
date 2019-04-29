@@ -13,6 +13,9 @@ export default new Vuex.Store({
 			tabhover: '',
 		},
 		vegetables: null,
+		initProject:null,
+		initArea:null,
+		initThing:null,
 	},
 	getters: {
 		getLoginUser(state) {
@@ -28,6 +31,15 @@ export default new Vuex.Store({
 		},
 		initUser(state, data) {
 			state.LoginUser = data;
+		},
+		initProjectM(state,data){
+			state.initProject=data;
+		},
+		initArea(state,data){
+			state.initArea=data
+		},
+		initThing(state,data){
+			state.initThing=data
 		},
 		changeCollapse(state) {
 			state.nav.isCollapse = !state.nav.isCollapse
@@ -67,6 +79,15 @@ export default new Vuex.Store({
 		},
 		initVegetables(context, data) {
 			context.commit("initVegetables", data)
+		},
+		initProject(context,data){
+			context.commit("initProjectM",data)
+		},
+		initArea(context,data){
+			context.commit("initArea",data)
+		}
+		,initThing(context,data){
+			context.commit("initThing",data)
 		}
 	}
 })

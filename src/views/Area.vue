@@ -72,6 +72,3 @@
 		},
 	}
 </script>
-
-<style>
-</style>
