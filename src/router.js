@@ -57,9 +57,8 @@ export default new Router({
 		}
 	},{
 		path: "/",
-		redirect: {
-			name: 'index'
-		}
+		name: 'index',
+		component: Index,
 	}, {
 		path: "/login",
 		name: 'logon',
@@ -152,5 +151,5 @@ export default new Router({
 			title:"种植历程"
 		}
 	}],
-	mode: 'history'
+	// mode: 'history'
 })

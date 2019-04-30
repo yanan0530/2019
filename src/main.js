@@ -50,7 +50,6 @@ router.beforeEach((to,from,next)=>{
 	}) 
 })
 
-
 new Vue({
 	router,
 	store,
