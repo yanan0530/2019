@@ -97,7 +97,6 @@ export default {
 				});
 			} else {
 				let data = JSON.parse(JSON.stringify(this.multipleSelection));
-				console.info(data[0].id)
 				delUser({"id":data[0].id}).then(res=>{
 					if(res==true){
 						this.$router.go(0);

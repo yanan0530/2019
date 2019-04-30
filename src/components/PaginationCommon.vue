@@ -25,7 +25,6 @@ export default {
 		handleCurrentChange(val) {
 			var pageid=val
 			var name=this.$route.name
-			console.info({ name, query: {pageid}})
 			this.$router.push({ name, query: {pageid}})
 		}
 	}

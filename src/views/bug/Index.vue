@@ -331,7 +331,6 @@ export default {
 			this.ruleForm2.desc='';
 		},
 		handleChange(value) {
-			console.log(value);
 		},
 		onEditorBlur(){//失去焦点事件
 		},

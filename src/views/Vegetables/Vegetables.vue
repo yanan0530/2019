@@ -91,7 +91,6 @@
 				let data = this.form
 				this.$refs['form'].validate(valid => {
 					if (valid) {
-						console.info(data)
 						vegeSave(data).then(res => {
 							if (res) {
 								alert('提交成功');
@@ -117,7 +116,6 @@
 		async mounted() {
 			let data = await vegeList();
 			this.tableData = data;
-			console.info(data)
 		}
 	};
 </script>

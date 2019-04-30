@@ -780,7 +780,6 @@ export default {
 		},
 
 		search() {
-			console.log(this.pastDays);
 			this.loadStatisticData();
 		},
 
@@ -797,7 +796,6 @@ export default {
 		},
 
 		rowClassNameHandler({ row, rowIndex }) {
-			// console.log(row['visible'])
 			let className = 'pid-' + row.parentcategoryid;
 			if (
 				row.parentcategoryid !== 0 &&

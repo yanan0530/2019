@@ -41,7 +41,6 @@
 		},
 		watch:{
 			yearRadio(val,oldVal){
-				console.info(val)
 				this.setYearData(val)
 			}
 		},
@@ -106,12 +105,10 @@
 					d.push(arr[i].sum);
 					source.push(d);
 				}
-				console.info(source)
 				return source
 			},
 			setYearData(year){
 				let data=this.dataToday;
-				console.info(data.filter(d=>d.datetime.split("-")[0]==year))
 				let eData=data.filter(d=>d.datetime.split("-")[0]==year)
 				this.drawLine(eData)
 			}

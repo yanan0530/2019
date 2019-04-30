@@ -315,7 +315,6 @@ export default {
 	},
 	async mounted(){
 		const result= await reqGetUser2()
-		console.info(result)
 	},
 	methods: {
 		submitForm() {
@@ -338,7 +337,6 @@ export default {
 			this.ruleForm2.desc='';
 		},
 		handleChange(value) {
-			console.log(value);
 		},
 		onEditorBlur(){//失去焦点事件
 		},

@@ -80,7 +80,6 @@
 		async mounted() {
 			this.yearRadio = new Date().getFullYear().toString();
 			this.dataToday = await incomeDateAll("year",new Date().getFullYear().toString());
-			console.info(this.dataToday);
 			this.drawLine(this.dataToday);
 		},
 		methods: {
@@ -121,7 +120,6 @@
 				}
 				// 使用刚指定的配置项和数据显示图表。
 				myChart.setOption(option);
-				console.info(this.dataToday)
 			},
 			//获取所有蔬菜 和 时间
 			getVegeAll(arr) {
