@@ -32,6 +32,16 @@
 				<el-table-column label="总收入" prop="sum"></el-table-column>
 				<el-table-column label="总产量" prop="weight"></el-table-column>
 				<el-table-column label="均价" prop="average"></el-table-column>
+				<el-table-column label="总天数" >
+					<template slot-scope="scope">
+						{{scope.row.endtime|showDate(scope.row.createtime)}}天
+					</template>
+				</el-table-column>
+				<el-table-column label="每日收益" >
+					<template slot-scope="scope">
+						{{scope.row.endtime|showDate(scope.row.createtime)|dailyIncome(scope.row.sum)}}元
+					</template>
+				</el-table-column>
 				<el-table-column label="操作" width="200">
 					<template slot-scope="scope">
 						<el-button @click="handleClick(scope.row)" type="text" size="small">改变状态</el-button>

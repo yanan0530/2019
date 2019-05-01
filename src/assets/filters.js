@@ -4,7 +4,24 @@ let showAreaTitle = (value, arr)=> {
 let showThingTitle = (value, arr) => {
 	return arr.filter(thing => thing.id == value)[0].name
 }
+let showDate=(value, projectDate)=>{
+	var dateSpan, tempDate, iDays;
+	let sDate1 = Date.parse(value);
+	let sDate2 = Date.parse(projectDate);
+	dateSpan = sDate2 - sDate1;
+	dateSpan = Math.abs(dateSpan);
+	iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+	return iDays
+}
+let dailyIncome=(value,sum)=>{
+	//value 总天数， sum 总收入
+	return (sum/value).toFixed(2)
+}
 export {
 	showAreaTitle,
-	showThingTitle
+	showThingTitle,
+	showDate,
+	dailyIncome
 }
+
+

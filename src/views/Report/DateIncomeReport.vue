@@ -46,6 +46,7 @@
 				this.yearRadio = val
 				this.mounthRadio="year";
 				 incomeDateAll("year",val).then(res => {
+					this.dataToday =res
 					this.drawLine(res, this.types);
 				})
 			},
@@ -64,6 +65,7 @@
 				}
 			},
 			types(val, oldval) {
+				console.info(this.dataToday)
 			 	this.drawLine(this.dataToday, val);
 			},
 		},

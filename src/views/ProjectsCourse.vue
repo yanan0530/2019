@@ -44,20 +44,10 @@ export default {
 	watch: {
 		projectid(newValue, oldValue) {
 			this.timeDate = this.initProject.find(project => project.id == newValue).createtime;
+			console.info(this.timeDate)
 			recordsByProjectId(newValue).then(res => {
 				this.timeOptions = res;
 			});
-		}
-	},
-	filters: {
-		showDate: function(value, projectDate) {
-			var dateSpan, tempDate, iDays;
-			let sDate1 = Date.parse(value);
-			let sDate2 = Date.parse(projectDate);
-			dateSpan = sDate2 - sDate1;
-			dateSpan = Math.abs(dateSpan);
-			iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
-			return iDays
 		}
 	}
 };
