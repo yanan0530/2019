@@ -32,14 +32,13 @@
 		</el-row>
 		<el-row>
 			<el-table :data="tableData" border style="width: 100%">
-				<el-table-column label="Id" prop="id"></el-table-column>
+				<el-table-column label="时间" prop="createtime"></el-table-column>
 				<el-table-column label="项目" prop="name"></el-table-column>
 				<el-table-column label="区域">
 					<template slot-scope="scope">
 						<el-tag v-for="(area,index) in scope.row.areaid.split(',')" :key="index">{{area|showAreaTitle(areaoptions)}}</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column label="时间" prop="createtime"></el-table-column>
 				<el-table-column label="日常操作" prop="">
 					<template slot-scope="scope">
 						<el-tag v-for="(thing,index) in scope.row.thingid.split(',')" :key="index">{{thing|showThingTitle(thingsoptions)}}</el-tag>

@@ -29,7 +29,7 @@
 			<el-table-column prop="unitprice" label="单价"></el-table-column>
 			<el-table-column label="操作" width="100">
 				<template slot-scope="scope">
-					<el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
+					<!-- <el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button> -->
 					<el-button type="text" size="small" @click="delClick(scope.row.id)">删除</el-button>
 				</template>
 			</el-table-column>
@@ -46,9 +46,9 @@
 	import {mapState} from "vuex"
 	export default {
 		methods: {
-			handleClick(row) {
+			/* handleClick(row) {
 				this.form = row;
-			},
+			}, */
 			onSubmit() {
 				let data = this.form;
 				data.unitprice = (data.money / data.weight).toFixed(2);
@@ -66,7 +66,8 @@
 				})
 			},
 			fillForm(val){
-				this.form.vegetable=this.initProject.find(pro=>pro.id=val).vegeid
+				this.form.vegetable=this.initProject.find(pro=>pro.id==val).vegeid
+				
 			}
 		},
 		async mounted() {
