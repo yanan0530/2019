@@ -53,7 +53,10 @@
 				})
 			},
 			delClick(d) {
-				areaDel(d).then(res => {
+				this.$yn.delConfirm(d,this.delFun)
+			},
+			delFun(id){
+				areaDel(id).then(res => {
 					if (res) {
 						this.$router.go(0)
 					}

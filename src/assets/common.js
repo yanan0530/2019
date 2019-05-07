@@ -24,3 +24,4 @@ export const getNowFormatDate = () => {
 	var currentdate = year + seperator1 + month + seperator1 + strDate;
 	return currentdate;
 }
+

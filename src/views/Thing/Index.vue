@@ -47,6 +47,9 @@ export default {
 			this.form = row;
 		},
 		delClick(id){
+			this.$yn.delConfirm(id,this.delFun)
+		},
+		delFun(id){
 			thingDel(id).then(res=>{
 				if (res) {
 					this.$router.go(0);

@@ -22,8 +22,6 @@
 			<el-button type="primary" @click="submitForm()">提交</el-button>
 			<el-button @click="resetForm()">重置</el-button>
 		</el-form-item>
-		{{ ruleForm2.col }}
-		{{ ruleForm2.desc }}
 	</el-form>
 </template>
 <script>

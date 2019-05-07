@@ -5,11 +5,11 @@ import App from './App.vue'
 import router from './router'
 import store from '@/store'
 import './plugins/element.js'
-
+import commons from '@/assets/commons.js'
 import echarts from 'echarts'
 
 Vue.prototype.$echarts = echarts 
-
+Vue.prototype.$yn=commons
 //富文本
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'

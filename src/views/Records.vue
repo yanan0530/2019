@@ -8,17 +8,17 @@
 				</el-form-item>
 				<el-form-item label="项目">
 					<el-checkbox-group v-model="form.projectid">
-						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in options">{{o.name}}</el-checkbox>
+						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in initProject">{{o.name}}</el-checkbox>
 					</el-checkbox-group>
 				</el-form-item>
 				<el-form-item label="区域">
 					<el-checkbox-group v-model="form.areaid">
-						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in areaoptions">{{o.areaname}}</el-checkbox>
+						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in initArea">{{o.areaname}}</el-checkbox>
 					</el-checkbox-group>
 				</el-form-item>
 				<el-form-item label="记录">
 					<el-checkbox-group v-model="form.thingid">
-						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in thingsoptions">{{o.name}}</el-checkbox>
+						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in initThing">{{o.name}}</el-checkbox>
 					</el-checkbox-group>
 				</el-form-item>
 				<el-form-item label="备注">
@@ -36,12 +36,12 @@
 				<el-table-column label="项目" prop="name"></el-table-column>
 				<el-table-column label="区域">
 					<template slot-scope="scope">
-						<el-tag v-for="(area,index) in scope.row.areaid.split(',')" :key="index">{{area|showAreaTitle(areaoptions)}}</el-tag>
+						<AreaTag :areaid="scope.row.areaid.split(',')" :initArea="initArea"></AreaTag>
 					</template>
 				</el-table-column>
 				<el-table-column label="日常操作" prop="">
 					<template slot-scope="scope">
-						<el-tag v-for="(thing,index) in scope.row.thingid.split(',')" :key="index">{{thing|showThingTitle(thingsoptions)}}</el-tag>
+						<ThingTag :thingid="scope.row.thingid.split(',')" :initThing="initThing"></ThingTag>
 					</template>
 				</el-table-column>
 				<el-table-column label="备注" prop="remarks"></el-table-column>
@@ -61,10 +61,10 @@
 		recordsAll,
 		recordsSave,
 		recordsDel,
-		projectByState,
-		areaAll,
-		thingAll,
 	} from "@/api/index.js"
+	import AreaTag from '@/components/tag/AreaTag.vue'
+	import ThingTag from '@/components/tag/ThingTag.vue'
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -77,21 +77,17 @@
 					areaid:[]
 				},
 				tableData: [],
-				options: "",
-				areaoptions: "",
-				thingsoptions: '',
 			}
 		},
+		computed: {
+			...mapState(['initThing','initArea','initProject'])
+		},
+		components: {
+			AreaTag,ThingTag
+		},
 		async mounted() {
-			this.thingsoptions = await thingAll();
-			areaAll().then(data => {
-				this.areaoptions = data
-			})
 			recordsAll().then(data => {
 				this.tableData = data
-			})
-			projectByState().then(res => {
-				this.options = res
 			})
 		},
 		methods: {
@@ -119,8 +115,11 @@
 					}
 				})
 			},
-			del(d) {
-				recordsDel(d).then(res => {
+			del(id) {
+				this.$yn.delConfirm(id,this.delFun)
+			},
+			delFun(id){
+				recordsDel(id).then(res => {
 					if (res) {
 						this.$router.go(0)
 					}
@@ -139,8 +138,4 @@
 	}
 </script>
 
-<style scoped="scoped">
-	.el-tag{
-		margin-right: 5px;
-	}
-</style>
+

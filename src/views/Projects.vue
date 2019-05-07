@@ -91,7 +91,10 @@
 				})
 			},
 			delClick(d) {
-				projectDel(d).then(res => {
+				this.$yn.delConfirm(id,this.delFun)
+			},
+			delFun(id){
+				projectDel(id).then(res => {
 					if (res) {
 						this.$router.go(0)
 					}

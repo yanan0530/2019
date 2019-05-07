@@ -38,7 +38,6 @@ export default {
 		areaAll().then(res=>{
 			this.$store.dispatch('initArea',res)
 		})
-		
 		thingAll().then(res=>{
 			this.$store.dispatch('initThing',res)
 		})

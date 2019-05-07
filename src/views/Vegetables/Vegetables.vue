@@ -59,19 +59,6 @@
 				}
 			};
 		},
-		computed: {
-			/* tableDataList() {
-				let newTable = new Array();
-				for (var i = 0, l = this.tableData.length; i < l; i++) {
-					let rows = {
-						"id": this.tableData[i]["pk"],
-						"name": this.tableData[i].fields.name
-					};
-					newTable[i] = rows;
-				}
-				return newTable
-			} */
-		},
 		methods: {
 			//编辑
 			handleClick(row) {
@@ -108,6 +95,9 @@
 			},
 			//删除
 			delClick(id) {
+				this.$yn.delConfirm(id,this.delFun)
+			},
+			delFun(id){
 				vegeDel(id).then(res => {
 					res ? this.$router.go(0) : alert("删除失败")
 				})

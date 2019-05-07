@@ -11,13 +11,6 @@
 					@select="handleSelect"
 					:router="true"
 				>	
-					<!-- <el-menu-item index="/bug" class="right">
-						 <span slot="title">Bug</span>
-					</el-menu-item>
-					<el-menu-item index="/role" class="right">
-						<span slot="title">管理员</span>
-					</el-menu-item> -->
-					<!-- <el-menu-item index="/" class="right">首页</el-menu-item> -->
 					<el-menu-item index="/user" class="right">用户管理</el-menu-item>
 					<el-menu-item index="/projects" class="right">种植计划</el-menu-item>
 					<el-menu-item index="/income" class="right">收入单据</el-menu-item>

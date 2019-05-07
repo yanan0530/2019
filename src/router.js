@@ -12,7 +12,6 @@ import Tree from '@/views/bug/Tree.vue'
 
 import Index from '@/views/index/Index.vue'
 
-import Role from "@/views/Role/Role"
 import Season from "@/views/Season/Index.vue"
 import Vegetables from '@/views/Vegetables/Vegetables.vue'
 
@@ -48,6 +47,9 @@ export default new Router({
 		path: '/index',
 		name: 'index',
 		component: Index,
+		meta:{
+			rule:"1234"
+		}
 	}, {
 		path:'/thing',
 		name:'thing',
@@ -83,10 +85,6 @@ export default new Router({
 	}, {
 		path: '/tree',
 		component: Tree
-	}, {
-		path: "/role",
-		component: Role,
-		name: "role"
 	}, {
 		path: "/allIncomeReport",
 		component: AllIncomeReport,
