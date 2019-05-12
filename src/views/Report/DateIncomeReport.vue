@@ -38,7 +38,7 @@
 				dataToday: [],
 				yearRadio: '',
 				mounthRadio:'year',
-				types: "总收入"
+				types: "总收入",
 			}
 		},
 		watch: {
@@ -80,6 +80,7 @@
 			}
 		},
 		async mounted() {
+			
 			this.yearRadio = new Date().getFullYear().toString();
 			this.dataToday = await incomeDateAll("year",new Date().getFullYear().toString());
 			this.drawLine(this.dataToday);
@@ -138,8 +139,10 @@
 			},
 			//获取所有信息
 			getOption(arr, type) {
+				console.info(arr)
 				let vegName = this.getVegeAll(arr).getvege
 				let time = this.getVegeAll(arr).time
+				console.info()
 				let sourceOne = new Array();
 				sourceOne[0] = "product"
 				let sourceTwo = new Array();
@@ -159,31 +162,30 @@
 								}
 							},
 						}
-						for (var j = 0; j < arr.length; j++) {
-							if (arr[j].datetime == time[n]) {
-								switch (type) {
-									case "总斤数":
-										if (arr[j].name == vegName[i]) {
-											timeArr.push(arr[j].weight)
-										} else {
-											timeArr.push(0)
-										}
-										break;
-									case "平均价格":
-										if (arr[j].name == vegName[i]) {
-											timeArr.push(arr[j].unitprice)
-										} else {
-											timeArr.push(0)
-										}
-										break;
-									default:
-										if (arr[j].name == vegName[i]) {
-											timeArr.push(arr[j].sum)
-										} else {
-											timeArr.push(0)
-										}
+						let objs=arr.find(arrs=>{
+							return arrs.datetime==time[n] && arrs.name==vegName[i]
+						})
+						switch (type) {
+							case "总斤数":
+								if (!!objs) {
+									timeArr.push(objs.weight)
+								} else {
+									timeArr.push(0)
 								}
-							}
+								break;
+							case "平均价格":
+								if (!!objs) {
+									timeArr.push(objs.unitprice)
+								} else {
+									timeArr.push(0)
+								}
+								break;
+							default:
+								if (!!objs) {
+									timeArr.push(objs.sum)
+								} else {
+									timeArr.push(0)
+								}
 						}
 					}
 					sourceTwo.push(timeArr)

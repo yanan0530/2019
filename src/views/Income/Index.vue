@@ -4,7 +4,7 @@
 			<el-form-item label="日期"><el-date-picker value-format="yyyy-MM-dd" v-model="form.datetime" type="date" placeholder="选择日期"></el-date-picker></el-form-item>
 			<el-form-item label="项目">
 				<el-select v-model="form.projectId" placeholder="请选择" @change="fillForm">
-					<el-option v-for="(item, index) in initProject" :key="index" :label="item.name" :value="item.id"></el-option>
+					<el-option v-for="(item, index) in initProject" :key="index" :label="item.createtime+item.name" :value="item.id"></el-option>
 				</el-select>
 			</el-form-item>
 			<el-form-item label="斤数"><el-input v-model="form.weight" type="number"></el-input></el-form-item>
