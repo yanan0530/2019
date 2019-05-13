@@ -3,7 +3,9 @@
  * id 删除的id 
  * fun 点击确定执行方法
  */
-import { MessageBox } from 'element-ui';
+import {
+	MessageBox
+} from 'element-ui';
 const delConfirm = (id, fun) => {
 	MessageBox.confirm("此操作将永久删除，是否继续？", "提示", {
 		confirmButtonText: '确定',
@@ -41,6 +43,15 @@ const datedifference = (sDate1, sDate2) => {
 	iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
 	return iDays
 }
-export default{
-	delConfirm,getNowFormatDate,removeArr
+//echarts 传入方法 id传入dom id options
+const eBuild = (echarts, id, options) => {
+	let myChart = echarts.init(document.getElementById('myChart'))
+	myChart.clear();
+	myChart.setOption(options);
+}
+export default {
+	delConfirm,
+	getNowFormatDate,
+	removeArr,
+	eBuild
 }

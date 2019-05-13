@@ -11,7 +11,6 @@
 					@select="handleSelect"
 					:router="true"
 				>	
-					<el-menu-item index="/user" class="right">用户管理</el-menu-item>
 					<el-menu-item index="/projects" class="right">种植计划</el-menu-item>
 					<el-menu-item index="/income" class="right">收入单据</el-menu-item>
 					<el-menu-item index="/projectscourse" class="right">种植历程</el-menu-item>

@@ -18,7 +18,12 @@ export const incomeSave = (data) => ajax('/yn/incomesave', data, "POST")
 export const incomeDel = (id) => ajax('/yn/delincome', {
 	id
 })
-
+//年
+export const incomeYearsArray=(id)=>ajax('/yn/income/years',{id})
+//获取日期 月-日
+export const incomeMountDayArray=(id)=>ajax('/yn/income/mouthday',{id})
+//获取 所有数据 
+export const incomeDataMountDayData=(id)=>ajax('/yn/income/datamountday',{id})
 
 //报表 获取所有总数据
 export const incomeAll = () => ajax('/yn/incomeall')
