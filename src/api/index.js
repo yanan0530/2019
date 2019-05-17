@@ -3,7 +3,6 @@ export const userList = () => ajax('/yn/userlist')
 export const addUser = (data) => ajax('/yn/adduser', data, "POST")
 export const delUser = (id) => ajax('/yn/delUser', id)
 
-
 //蔬菜管理
 //列表
 export const vegeList = () => ajax('/yn/vegelist')
@@ -12,6 +11,11 @@ export const vegeDel = (id) => ajax('/yn/vegedel', {
 	id
 })
 export const vegeInit = () => ajax('/yn/vegeinit')
+//蔬菜均价管理
+export const vpList=()=>ajax('/yn/vp/list')
+export const vpSave=(data)=>ajax('/yn/vp/save',data,"POST")
+export const vpDel=(id)=>ajax('/yn/vp/del',{id})
+
 //收入管理
 export const incomeList = () => ajax('/yn/income')
 export const incomeSave = (data) => ajax('/yn/incomesave', data, "POST")

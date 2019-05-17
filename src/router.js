@@ -13,8 +13,9 @@ import Tree from '@/views/bug/Tree.vue'
 import Index from '@/views/index/Index.vue'
 
 import Season from "@/views/Season/Index.vue"
+//蔬菜管理
 import Vegetables from '@/views/Vegetables/Vegetables.vue'
-
+import VegetablesPrice from '@/views/Vegetables/VegetablesPrice'
 import Income from '@/views/Income/Index'
 
 //报表  
@@ -112,6 +113,13 @@ export default new Router({
 			name: 'vegetables',
 			meta: {
 				title: "蔬菜管理"
+			}
+		}, {
+			path: '/vegetablesprice',
+			component: VegetablesPrice,
+			name: 'vegetablesprice',
+			meta: {
+				title: "蔬菜价格管理"
 			}
 		}, {
 			path: '/income',
