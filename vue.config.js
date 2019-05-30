@@ -7,4 +7,12 @@ module.exports = {
 			}, 
 		}
 	},
+
+    baseUrl: undefined,
+    outputDir: 'E:/ideaProject/springboot/src/main/resources/static',
+    assetsDir: undefined,
+    runtimeCompiler: undefined,
+    productionSourceMap: undefined,
+    parallel: undefined,
+    css: undefined
 }

@@ -8,7 +8,7 @@
 				</el-form-item>
 				<el-form-item label="项目">
 					<el-checkbox-group v-model="form.projectid">
-						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in initProject">{{o.name}}</el-checkbox>
+						<el-checkbox :label="o.id" :key="index" v-for="(o,index) in initProject">{{o.createtime+o.name}}</el-checkbox>
 					</el-checkbox-group>
 				</el-form-item>
 				<el-form-item label="区域">

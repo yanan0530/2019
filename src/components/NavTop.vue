@@ -12,7 +12,7 @@
 					:router="true"
 				>	
 				
-					<el-menu-item index="vegetablesprice" class="right">蔬菜价格管理</el-menu-item>
+					<!-- <el-menu-item index="vegetablesprice" class="right">蔬菜价格管理</el-menu-item> -->
 					<el-menu-item index="/projects" class="right">种植计划</el-menu-item>
 					<el-menu-item index="/income" class="right">收入单据</el-menu-item>
 					<el-menu-item index="/projectscourse" class="right">种植历程</el-menu-item>
